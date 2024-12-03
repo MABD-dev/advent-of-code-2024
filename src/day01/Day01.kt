@@ -17,14 +17,13 @@ fun main() {
     }
 
     fun part2(input: List<String>): Long {
-        val list2NumberToCountMap = mutableMapOf<Long, Int>()
         val (list1, list2) = input.map { line ->
             val first = line.substringBefore(" ").toLong()
             val second = line.substringAfterLast(" ").toLong()
-            list2NumberToCountMap[second] = list2NumberToCountMap.getOrDefault(second, 0) + 1
             first to second
         }.unzip()
 
+        val list2NumberToCountMap = list2.groupingBy { it }.eachCount()
         return list1.sumOf {
             it * list2NumberToCountMap.getOrDefault(it, 0)
         }
@@ -32,7 +31,7 @@ fun main() {
 
     // Test if implementation meets criteria from the description, like:
 
-    // Or read a large test input from the `src/Day01_test.txt` file:
+    // Or read a large test input from the `src/Day02_test.txt` file:
     val testInput = readInput("day01", "Day01_test")
     check(part1(testInput) == 11L)
     check(part2(testInput) == 31L)
