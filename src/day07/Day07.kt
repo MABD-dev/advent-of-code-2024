@@ -4,15 +4,6 @@ import println
 import readInput
 
 
-sealed interface Operation {
-    abstract fun run(a: Long, b: Long): Long
-    abstract fun undo()
-
-
-}
-
-
-
 fun main() {
 
     fun part1(input: List<String>): Long {
