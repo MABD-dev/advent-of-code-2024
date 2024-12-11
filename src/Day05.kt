@@ -1,8 +1,3 @@
-package day05
-
-import println
-import readInput
-
 fun main() {
 
     fun part1(input: List<String>): Int {
@@ -68,15 +63,11 @@ fun main() {
         return 1
     }
 
-    // Test if implementation meets criteria from the description, like:
-
-    // Or read a large test input from the `src/Day02_test.txt` file:
-    val testInput = readInput("day05", "Day05_test")
+    val testInput = readTestInput()
     check(part1(testInput) == 123)
 //    check(part2(testInput) == 9)
 
-    // Read the input from the `src/Day05.txt` file.
-    val input = readInput("day05", "Day05")
+    val input = readInput()
     part1(input).println()
 //    part2(input).println()
 

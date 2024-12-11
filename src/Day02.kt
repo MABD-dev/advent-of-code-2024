@@ -1,10 +1,4 @@
-package day02
-
-import println
-import readInput
-import kotlin.math.abs
 import kotlin.math.absoluteValue
-import kotlin.math.min
 
 private fun areSafeLevels2(levels: List<Int>): Boolean {
     val zipped = levels.zipWithNext()
@@ -56,11 +50,11 @@ fun main() {
         }
     }
 
-    val testInput = readInput("day02", "Day02_test")
+    val testInput = readTestInput()
     check(part1(testInput) == 2)
     check(part2(testInput) == 4)
 
-    val input = readInput("day02", "Day02")
+    val input = readInput()
     part1(input).println()
     part2(input).println()
 

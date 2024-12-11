@@ -1,11 +1,5 @@
-package day09
-
-import println
-import readInput
 import kotlin.math.min
 
-private const val FOLDER_NAME = "day09"
-private const val FILE_NAME = "Day09"
 
 private data class Shit(
     val size: Int,
@@ -38,11 +32,13 @@ fun main() {
                 .toCharArray()
                 .map { it.digitToInt() }
                 .forEachIndexed { index, i ->
-                    shits.add(Shit(
-                        size = i,
-                        isFreeSpace = isFreeSpace,
-                        originalIndex = shitIndex
-                    ))
+                    shits.add(
+                        Shit(
+                            size = i,
+                            isFreeSpace = isFreeSpace,
+                            originalIndex = shitIndex
+                        )
+                    )
                     if (!isFreeSpace) shitIndex++
                     isFreeSpace = !isFreeSpace
                 }
@@ -63,11 +59,13 @@ fun main() {
                 continue
             } else {
                 val minSize = min(shits[i].size, shits[j].size)
-                output.add(Shit(
-                    size = minSize,
-                    isFreeSpace = false,
-                    originalIndex = shits[j].originalIndex
-                ))
+                output.add(
+                    Shit(
+                        size = minSize,
+                        isFreeSpace = false,
+                        originalIndex = shits[j].originalIndex
+                    )
+                )
                 if (minSize == shits[i].size) i++
                 else {
                     shits[i] = shits[i].copy(size = shits[i].size - minSize)
@@ -101,11 +99,13 @@ fun main() {
                 .toCharArray()
                 .map { it.digitToInt() }
                 .forEachIndexed { index, i ->
-                    shits.add(Shit(
-                        size = i,
-                        isFreeSpace = isFreeSpace,
-                        originalIndex = shitIndex
-                    ))
+                    shits.add(
+                        Shit(
+                            size = i,
+                            isFreeSpace = isFreeSpace,
+                            originalIndex = shitIndex
+                        )
+                    )
                     if (!isFreeSpace) shitIndex++
                     isFreeSpace = !isFreeSpace
                 }
@@ -154,23 +154,19 @@ fun main() {
         var sum = 0L
         output.forEach { shit ->
             repeat(shit.size) {
-//                println("$i * ${shit.originalIndex}")
                 val originalIndex = if (shit.isFreeSpace) 0 else shit.originalIndex
                 sum += i++ * originalIndex
             }
         }
 
-//        println(output)
-
-//        println("sum=$sum")
         return sum
     }
 
-    val testInput = readInput(FOLDER_NAME, "${FILE_NAME}_test")
+    val testInput = readTestInput()
 //    check(part1(testInput) == 1928L)
     check(part2(testInput) == 2858L)
 
-    val input = readInput(FOLDER_NAME, FILE_NAME)
+    val input = readInput()
 //    part1(input).println()
     part2(input).println()
 

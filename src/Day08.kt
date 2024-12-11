@@ -1,26 +1,16 @@
-package day08
+import models.Position
 
-import println
-import readInput
-
-private const val FOLDER_NAME = "day08"
-private const val FILE_NAME = "Day08"
-
-data class Position(val x: Int, val y: Int) {
-
-    /**
-     * assuming this position is the midpoint between [pos2] and the hashtag
-     */
-    fun calculateHashtag(pos2: Position): Position {
-        return Position(
-            x = 2 * this.x - pos2.x,
-            y = 2 * this.y - pos2.y
-        )
-    }
-
-    fun isInBounds(width: Int, height: Int): Boolean = this.x in 0..<width && this.y in 0..<height
-
+/**
+ * assuming this position is the midpoint between [pos2] and the hashtag
+ */
+private fun Position.calculateHashtag(pos2: Position): Position {
+    return Position(
+        x = 2 * this.x - pos2.x,
+        y = 2 * this.y - pos2.y
+    )
 }
+
+private fun Position.isInBounds(width: Int, height: Int): Boolean = this.x in 0..<width && this.y in 0..<height
 
 fun main() {
 
@@ -121,11 +111,11 @@ fun main() {
         }
     }
 
-    val testInput = readInput(FOLDER_NAME, "${FILE_NAME}_test")
+    val testInput = readTestInput()
     check(part1(testInput) == 14)
     check(part2(testInput) == 34)
 
-    val input = readInput(FOLDER_NAME, FILE_NAME)
+    val input = readInput()
     part1(input).println()
     part2(input).println()
 

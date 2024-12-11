@@ -1,8 +1,3 @@
-package day04
-
-import println
-import readInput
-
 fun main() {
 
     fun searchX(input: List<List<Char>>, i: Int, j: Int, x: String, k: Int, addI: Int, addJ: Int): Int {
@@ -89,15 +84,11 @@ fun main() {
         return sum
     }
 
-    // Test if implementation meets criteria from the description, like:
-
-    // Or read a large test input from the `src/Day02_test.txt` file:
-    val testInput = readInput("day04", "Day04_test")
+    val testInput = readTestInput()
     check(part1(testInput) == 18)
     check(part2(testInput) == 9)
 
-    // Read the input from the `src/Day04.txt` file.
-    val input = readInput("day04", "Day04")
+    val input = readInput()
     part1(input).println()
     part2(input).println()
 

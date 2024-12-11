@@ -1,9 +1,3 @@
-package day03
-
-import println
-import readInput
-import kotlin.math.abs
-
 fun main() {
     val regex = """mul\((?<x>\d{1,3}),(?<y>\d{1,3})\)""".toRegex()
     val combinedRegex = """(mul\((?<x>\d{1,3}),(?<y>\d{1,3})\))|(do\(\)|don't\(\))""".toRegex()
@@ -42,15 +36,11 @@ fun main() {
         }.also { println("shit = $it") }
     }
 
-    // Test if implementation meets criteria from the description, like:
-
-    // Or read a large test input from the `src/Day02_test.txt` file:
-    val testInput = readInput("day03", "Day03_test")
+    val testInput = readTestInput()
     check(part1(testInput) == 161L)
     check(part2(testInput) == 48L)
 
-    // Read the input from the `src/Day03.txt` file.
-    val input = readInput("day03", "Day03")
+    val input = readInput()
     part1(input).println()
     part2(input).println()
 

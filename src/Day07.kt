@@ -1,9 +1,3 @@
-package day07
-
-import println
-import readInput
-
-
 fun main() {
 
     fun part1(input: List<String>): Long {
@@ -83,11 +77,11 @@ fun main() {
         }
     }
 
-    val testInput = readInput("day07", "Day07_test")
+    val testInput = readTestInput()
     check(part1(testInput) == 3749L)
     check(part2(testInput) == 11387L)
 
-    val input = readInput("day07", "Day07")
+    val input = readInput()
     part1(input).println()
     part2(input).println()
 

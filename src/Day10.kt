@@ -1,29 +1,16 @@
-package day10
+import models.Position
 
-import println
-import readInput
+private fun Position.moveRight() = this.copy(x = x, y = y + 1)
+private fun Position.moveLeft() = this.copy(x = x, y = y - 1)
+private fun Position.moveUp() = this.copy(x = x - 1, y = y)
+private fun Position.moveDown() = this.copy(x = x + 1, y = y)
 
-private const val FOLDER_NAME = "day10"
-private const val FILE_NAME = "Day10"
+private fun Position.isValid(width: Int, height: Int): Boolean {
+    return this.x in 0..<width && this.y in 0..< height
+}
 
-private data class Position(
-    val i: Int,
-    val j: Int
-) {
-
-    fun moveRight() = this.copy(i = i, j = j + 1)
-    fun moveLeft() = this.copy(i = i, j = j - 1)
-    fun moveUp() = this.copy(i = i - 1, j = j)
-    fun moveDown() = this.copy(i = i + 1, j = j)
-
-    fun isValid(width: Int, height: Int): Boolean {
-        return this.i in 0..<width && this.j in 0..< height
-    }
-
-    inline fun ifValid(width: Int, height: Int, block: (Position) -> Unit) {
-        if (isValid(width, height)) block(this)
-    }
-
+private inline fun Position.ifValid(width: Int, height: Int, block: (Position) -> Unit) {
+    if (isValid(width, height)) block(this)
 }
 
 fun main() {
@@ -144,11 +131,11 @@ fun main() {
         return result
     }
 
-    val testInput = readInput(FOLDER_NAME, "${FILE_NAME}_test")
+    val testInput = readTestInput()
 //    check(part1(testInput) == 36L)
     check(part2(testInput) == 81L)
 
-    val input = readInput(FOLDER_NAME, FILE_NAME)
+    val input = readInput()
 //    part1(input).println()
     part2(input).println()
 
