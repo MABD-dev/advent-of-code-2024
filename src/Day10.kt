@@ -1,12 +1,9 @@
 import models.Position
 
-private fun Position.moveRight() = this.copy(x = x, y = y + 1)
-private fun Position.moveLeft() = this.copy(x = x, y = y - 1)
-private fun Position.moveUp() = this.copy(x = x - 1, y = y)
-private fun Position.moveDown() = this.copy(x = x + 1, y = y)
+
 
 private fun Position.isValid(width: Int, height: Int): Boolean {
-    return this.x in 0..<width && this.y in 0..< height
+    return this.r in 0..<width && this.c in 0..< height
 }
 
 private inline fun Position.ifValid(width: Int, height: Int, block: (Position) -> Unit) {

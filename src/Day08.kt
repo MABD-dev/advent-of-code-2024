@@ -5,12 +5,12 @@ import models.Position
  */
 private fun Position.calculateHashtag(pos2: Position): Position {
     return Position(
-        x = 2 * this.x - pos2.x,
-        y = 2 * this.y - pos2.y
+        r = 2 * this.r - pos2.r,
+        c = 2 * this.c - pos2.c
     )
 }
 
-private fun Position.isInBounds(width: Int, height: Int): Boolean = this.x in 0..<width && this.y in 0..<height
+private fun Position.isInBounds(width: Int, height: Int): Boolean = this.r in 0..<width && this.c in 0..<height
 
 fun main() {
 
