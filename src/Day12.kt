@@ -1,6 +1,6 @@
 import models.Position
+import models.toInt
 
-private fun Boolean.toInt() = if(this) 1 else 0
 
 private data class Cell(
     val visited: Boolean = false,

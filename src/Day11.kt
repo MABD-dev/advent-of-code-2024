@@ -1,4 +1,3 @@
-
 private fun formatInput(input: List<String>): List<Long> {
     return input[0].split(" ").map { it.toLong() }
 }
